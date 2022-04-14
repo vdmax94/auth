@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/styles/script.js"></script>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>Users list</title>
+</head>
+<body>
+You are authorization is good for acc <%=user.email%>
+
+
+<form action = "/logout" method="post">
+    <button type="submit" class="btn btn-default">Logout</button>
+</form>
+<hr>
+<%if (users.length){%>
+<form action="/action" method="post">
+    <div class="divTable greyGridTable">
+        <div class="divTableHeading">
+            <div class="divTableRow">
+                <div class="divTableHead">
+                    <button type="submit" name="action" value="delete" onClick="return checker()">Delete</button>
+                    <button type="submit" name="action" value="block" onClick="return checker()">Block</button>
+                    <button type="submit" name="action" value="unblock" onClick="return checker()">UnBlock</button>
+                </div>
+            </div>
+        </div>
+        <div class="divTableHeading">
+            <div class="divTableRow">
+                <div class="divTableHead"><label><input type=checkbox name=id class=chk-all>All</label></div>
+                <div class="divTableHead">Name</div>
+                <div class="divTableHead">email</div>
+                <div class="divTableHead">Reg date</div>
+                <div class="divTableHead">Log date</div>
+                <div class="divTableHead">Blocked</div>
+            </div>
+        </div>
+        <div class="divTableBody">
+            <%users.forEach(function (elem){%>
+            <div class="divTableRow">
+                <div class="divTableCell"><label><input type=checkbox name=id value="<%=elem.id%>"><%=elem.id%></label></div>
+                <div class="divTableCell"><%=elem.firstname%> <%=elem.lastname%></div>
+                <div class="divTableCell"><%=elem.email%></div>
+                <div class="divTableCell">
+                    <%
+                        var msUTC = Date.parse(elem.date);
+                        var date = new Date(msUTC);
+                        var isoDate = date.toISOString();
+                        var dateger = isoDate.substr(0, 10);
+                    %>
+                    <%=dateger%>
+                </div>
+                <div class="divTableCell">
+                    <%
+                        var ms = Date.parse(elem.datelog);
+                        var date = new Date(ms);
+                        var isoDate = date.toISOString();
+                        var datelog = isoDate.substr(0, 10);
+                    %>
+                    <%=datelog%>
+                </div>
+                <div class="divTableCell">
+                    <%
+                    if (elem.blocked){%>
+                        Blocked
+                    <%}else{%>
+                        Active
+                    <%}%>
+                </div>
+            </div>
+            <%})%>
+
+        </div>
+    </div>
+</form>
+<%}%>
+</body>
+</html>

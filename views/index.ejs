@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport"
+       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="/styles/style.css" />
+ <title>Authorization</title>
+</head>
+<body>
+
+<div class="container">
+ <div class="row">
+  <div class="col-md-offset-3 col-md-6">
+
+   <div class="tab" role="tabpanel">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+     <li role="presentation" class="active"><a href="/" aria-controls="home">sign in</a></li>
+     <li role="presentation"><a href="/registration" aria-controls="profile">sign up</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content tabs">
+     <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+      <% if (firstname) {%>
+      <div><p style="color: #eec111"><%=firstname%> <%=lastname%>, you have registered! You can enter with your email and password</p></div>
+      <%}%>
+
+      <%if (!auth) {%>
+      <div><p style="color: #eec111">User with email "<%=email%>" don't found in DataBase! Enter correct email!</p></div>
+      <%}%>
+
+      <%if (err2) {%>
+      <div><p style="color: #eec111"><%=err2%></p></div>
+      <%}%>
+
+      <form class="form-horizontal" method="post" action="/">
+       <div class="form-group">
+        <label for="exampleInputEmail1">username</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="<%=email%>">
+       </div>
+       <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+       </div>
+       <div class="form-group">
+        <button type="submit" class="btn btn-default">Sign in</button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+
+  </div><!-- /.col-md-offset-3 col-md-6 -->
+ </div><!-- /.row -->
+</div><
+</body>
+</html>
