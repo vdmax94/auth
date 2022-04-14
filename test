@@ -1,0 +1,7 @@
+ <div class="form-group">
+ <div class="main-checkbox">
+ <input value="None" id="checkbox1" name="check" type="checkbox">
+ <label for="checkbox1"></label>
+ </div>
+ <span class="text">Keep me Signed in</span>
+ </div>

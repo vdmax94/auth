@@ -1,0 +1,31 @@
+{
+  "name": "webauth",
+  "version": "1.0.0",
+  "description": "authorization and registration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "authorization",
+    "registration"
+  ],
+  "author": "vdmax94",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-redis": "^6.1.3",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.0.2",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "install": "^0.13.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
+    "npm": "^8.6.0",
+    "redis": "^4.0.6"
+  }
+}
